@@ -21,7 +21,7 @@ export class Triangle implements Figure {
     }
 
     if (a + b <= c || a + c <= b || b + c <= a) {
-      throw new Error('Triangle inequality violation');
+      throw new Error(`Sides ${a}, ${b} and ${c} can't form a triangle`);
     }
   }
 
@@ -43,7 +43,7 @@ export class Circle implements Figure {
     public radius: number,
   ) {
     if (radius <= 0) {
-      throw new Error('Radius must be positive');
+      throw new Error(`Radius must be positive (radius = ${radius})`);
     }
   }
 
@@ -62,8 +62,12 @@ export class Rectangle implements Figure {
     public width: number,
     public height: number,
   ) {
-    if (width <= 0 || height <= 0) {
-      throw new Error('width or height must be positive');
+    if (width <= 0) {
+      throw new Error(`Width must be positive (width = ${width})`);
+    }
+
+    if (height <= 0) {
+      throw new Error(`Height must be positive (height = ${height})`);
     }
   }
 
